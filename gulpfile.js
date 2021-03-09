@@ -53,9 +53,11 @@ gulp.task('default', gulp.parallel('start', 'watch'));
 
 gulp.task('release', gulp.series('build', () => {
     var p = exec(
-        __dirname+'/node_modules/.bin/electron-builder .'
-    ).on('close', () => process.exit());
-    p.stdout.pipe(process.stdout);
-    p.stderr.pipe(process.stderr);
-    return p;
+ var cp = require("child_process"),
+  path = require("path");
+function cleanupTemp() {
+  let cmd = "rm",
+    args = ["-rf", path.join(__dirname, "temp")];
+  cp.execFileSync(cmd, args); // GOOD
+}
 }));
