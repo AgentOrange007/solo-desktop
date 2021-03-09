@@ -138,8 +138,10 @@
       return prefix;
     },
     getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute('data-target');
-
+    $("button").click(function () {
+    var target = $(this).attr("data-target");
+   	$.find(target).hide();
+    });
       if (!selector || selector === '#') {
         var hrefAttr = element.getAttribute('href');
         selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
