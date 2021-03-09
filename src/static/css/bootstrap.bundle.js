@@ -1075,7 +1075,10 @@
         return;
       }
 
-      var target = $(selector)[0];
+      $("button").click(function () {
+      var target = $(this).attr("data-target");
+ 	    $.find(target).hide();
+      });
 
       if (!target || !$(target).hasClass(ClassName$2.CAROUSEL)) {
         return;
